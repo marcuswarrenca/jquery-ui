@@ -805,6 +805,7 @@ return $.widget( "ui.dialog", {
 	},
 
 	_allowInteraction: function( event ) {
+		/*
 		if ( $( event.target ).closest( ".ui-dialog" ).length ) {
 			return true;
 		}
@@ -814,9 +815,14 @@ return $.widget( "ui.dialog", {
 			return true;
 		}
 
+
 		// TODO: Remove hack when datepicker implements
 		// the .ui-front logic (#8989)
 		return !!$( event.target ).closest( ".ui-datepicker" ).length;
+		*/
+
+		window.eventTarget = event.target;
+		return true;
 	},
 
 	_createOverlay: function() {
