@@ -805,24 +805,23 @@ return $.widget( "ui.dialog", {
 	},
 
 	_allowInteraction: function( event ) {
-		/*
 		if ( $( event.target ).closest( ".ui-dialog" ).length ) {
 			return true;
 		}
 
 		// TODO: figure out a better solution for this
+		//NOTE: allow interaction in ckeditor dialogs
 		if ( $( event.target ).closest( ".cke_dialog" ).length ) {
 			return true;
 		}
-
+		//NOTE: allow interaction in our colorpick dialog
+		if ( $( event.target ).closest( ".colorpicker" ).length ) {
+			return true;
+		}
 
 		// TODO: Remove hack when datepicker implements
 		// the .ui-front logic (#8989)
 		return !!$( event.target ).closest( ".ui-datepicker" ).length;
-		*/
-
-		window.eventTarget = event.target;
-		return true;
 	},
 
 	_createOverlay: function() {
