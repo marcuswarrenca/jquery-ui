@@ -805,6 +805,12 @@ return $.widget( "ui.dialog", {
 	},
 
 	_allowInteraction: function( event ) {
+
+		//NOTE: there was an issue with firefox where targeting ckeditor did not seem to work
+		//TODO: for now always return true; figure out firefox issue
+		return true;
+
+		/*
 		if ( $( event.target ).closest( ".ui-dialog" ).length ) {
 			return true;
 		}
@@ -822,6 +828,7 @@ return $.widget( "ui.dialog", {
 		// TODO: Remove hack when datepicker implements
 		// the .ui-front logic (#8989)
 		return !!$( event.target ).closest( ".ui-datepicker" ).length;
+		*/
 	},
 
 	_createOverlay: function() {
